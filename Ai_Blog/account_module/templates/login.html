@@ -1,0 +1,40 @@
+{% extends '_layout.html' %}
+
+{% block title %}Login | AI‑Powered Blog{% endblock %}
+
+
+{% block content %}
+<!-- Page-specific header (not from base.html) -->
+<h1 class="header-title">AI‑Powered Blog</h1>
+
+<div class="container">
+    <section id="form"><!--form-->
+        <div class="row">
+            <div class="col-sm-6 col-md-offset-3">
+                <div class="signup-form"><!--sign up form-->
+                    <h2>Login</h2>
+                    <form method="post" action="{% url 'login_page' %}">
+                        {% csrf_token %}
+
+                        <!--								{{login_form}}-->
+                        {{ login_form.email.label_tag }}
+                        {{ login_form.email }}
+                        {{ login_form.email.errors }}
+                        {{ login_form.password.label_tag }}
+                        {{ login_form.password }}
+                        {{ login_form.password.errors }}
+
+
+                        <p><a href="{% url 'forget_password_page' %}">Forgot password?</a></p>
+                        <button type="submit" class="btn-primary">Login</button>
+                        <p class="alt-link">
+                            <a href="{% url 'register' %}">Don’t have an account? Register here</a>
+                        </p>
+                    </form>
+                </div><!--/sign up form-->
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}
