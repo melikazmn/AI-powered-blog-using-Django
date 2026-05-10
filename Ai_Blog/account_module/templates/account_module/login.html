@@ -1,11 +1,11 @@
-{% extends '_layout.html' %}
+{% extends 'shared/_layout.html' %}
 
 {% block title %}Login | AI‑Powered Blog{% endblock %}
 
 
 {% block content %}
 <!-- Page-specific header (not from base.html) -->
-<h1 class="header-title">AI‑Powered Blog</h1>
+<h1 class="header-title"> AI‑Powered Blog</h1>
 
 <div class="container">
     <section id="form"><!--form-->
@@ -25,10 +25,10 @@
                         {{ login_form.password.errors }}
 
 
-                        <p><a href="{% url 'forget_password_page' %}">Forgot password?</a></p>
-                        <button type="submit" class="btn-primary">Login</button>
+                        <p><a class="forget-pass" href="{% url 'forget_password_page' %}">Forgot password?</a></p>
+                        <button type="submit" class="btn-primary" >Login</button>
                         <p class="alt-link">
-                            <a href="{% url 'register' %}">Don’t have an account? Register here</a>
+                            <a href="{% url 'register_page' %}">Don’t have an account? Register here </a>
                         </p>
                     </form>
                 </div><!--/sign up form-->

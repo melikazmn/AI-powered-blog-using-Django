@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'account_module'
+    'account_module',
+    'blog_module'
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'Ai_Blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,6 +73,8 @@ WSGI_APPLICATION = 'Ai_Blog.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+
+AUTH_USER_MODEL = 'account_module.User'
 
 DATABASES = {
     'default': {
@@ -115,9 +118,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+MEDIA_ROOT = BASE_DIR / 'uploads'
+MEDIA_URL = '/medias/'
+
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Ai_Blog/settings.py
+
+# Redirect after login/logout
+LOGIN_REDIRECT_URL = 'blog:post_list'
+LOGOUT_REDIRECT_URL = 'account:login'
+LOGIN_URL = 'account:login'
+

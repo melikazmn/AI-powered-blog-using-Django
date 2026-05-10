@@ -1,0 +1,142 @@
+
+/* Global reset & font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f0f4ff;
+  color: #333333;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #7070d1;
+  text-align: center;
+  margin-top: 30px;
+  letter-spacing: 1px;
+}
+
+/* Container (form card) */
+.container {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+/* Headings inside forms */
+.container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #23272a;
+}
+
+/* Form fields */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* space between inputs */
+}
+
+input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+  width: 100%;
+  font-size: 15px;
+}
+input::placeholder {
+  color: #888;
+}
+input:focus {
+  border-color: #444476;
+  outline: none;
+}
+
+/* Button */
+.btn-primary {
+  padding: 12px;
+  background-color: #444476;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #171744;
+}
+
+/* Links below form */
+.alt-link a {
+  color: #7070d1;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin-top: 20px;
+  font-size: 14px;
+}
+.alt-link a:hover {
+  text-decoration: underline;
+}
+.forget-pass {
+  color: #7070d1;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.forget-pass:hover {
+  text-decoration: underline;
+}
+/* Password help text styling (Django automatically gives them a class) */
+.form-text,
+.helptext,
+.helptext ul {
+  font-size: 13px;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Make the list consistent and subtle */
+.helptext ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  padding-left: 0;
+}
+
+/* Adjust spacing between list items */
+.helptext li {
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* Form error styling */
+.errorlist {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+    color: #dc3545;
+    font-size: 0.875rem;
+}
+
+
+
+

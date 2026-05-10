@@ -31,7 +31,7 @@ class RegisterForm(forms.Form):
         if password == confirm_password:
             return confirm_password
 
-        return ValidationError(' they are not the same ')
+        raise ValidationError('passwords are not identical')
 
 
 class LoginForm(forms.Form):

@@ -9,18 +9,19 @@ from django.contrib import messages
 from django.urls import reverse
 from django.views import View
 
-from .forms import RegisterForm, LoginForm
+from .forms import RegisterForm, LoginForm, ForgotPasswordForm
 from .models import User
 
 
 class RegisterView(View):
-    def get(self,request):
-        register_form = RegisterForm
+    def get(self, request):
+        register_form = RegisterForm()
         context = {
             'register_form': register_form
         }
-        return render(request, 'accounts/register.html', context)
-    def post(self,request):
+        return render(request, 'account_module/register.html', context)
+
+    def post(self, request):
         register_form = RegisterForm(request.POST)
         if register_form.is_valid():
             user_email = register_form.cleaned_data.get('email')
@@ -40,14 +41,15 @@ class RegisterView(View):
         }
         return render(request, 'account_module/register.html', context)
 
+
 class LoginView(View):
-    def get(self,request):
+    def get(self, request):
         login_form = LoginForm()
         context = {
             'login_form': login_form
         }
         return render(request, 'account_module/login.html', context)
-    
+
     def post(self, request: HttpRequest):
         login_form = LoginForm(request.POST)
         if login_form.is_valid():
@@ -55,24 +57,43 @@ class LoginView(View):
             user_password = login_form.cleaned_data.get('password')
             user: User = User.objects.filter(email__iexact=user_email).first()
             if user is not None:
-                if not user.is_active:
-                    login_form.add_error('email','your account is not active yet!')
-
+                is_password_correct = user.check_password(user_password)
+                if is_password_correct:
+                    login(request, user)
+                    return redirect(reverse('post_list'))
                 else:
-                    is_password_correct = user.check_password(user_password)
-                    if is_password_correct:
-                        login(request, user)
-                        return redirect(reverse('home_page'))
-                    else:
-                        login_form.add_error('email', 'email or password is wrong')
+                    login_form.add_error('email', 'email or password is wrong')
 
             else:
-                login_form.add_error('email','account doesnt exist')
+                login_form.add_error('email', 'account doesnt exist')
 
         context = {
             'login_form': login_form
         }
         return render(request, 'account_module/login.html', context)
+
+
+class ForgetPasswordView(View):
+    def get(self, request):
+        forget_pass_form = ForgotPasswordForm()
+        context={
+            'forget_pass_form': forget_pass_form
+        }
+        return render(request, 'account_module/forgot_password.html', context)
+
+    def post(self, request):
+        forget_pass_form = ForgotPasswordForm(request.POST)
+        if forget_pass_form.is_valid():
+            user_email = forget_pass_form.cleaned_data.get('email')
+            user = User.objects.filter(email__iexact=user_email).first()
+            if user is not None:
+                return render(request, 'account_module/login.html')
+                ########
+        context = {
+            'forget_pass_form': forget_pass_form
+        }
+        return render(request, 'account_module/forgot_password.html', context)
+
 
 
 def logout_view(request):
