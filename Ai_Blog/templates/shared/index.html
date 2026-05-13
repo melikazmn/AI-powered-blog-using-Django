@@ -1,0 +1,21 @@
+<!-- templates/shared/index.html -->
+{% extends 'shared/_layout.html' %}
+
+{% block extra_css %}
+{% load static %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock %}
+
+
+{% block content %}
+{% include 'shared/navbar.html' %}
+
+
+{% block blog_content %}{% endblock %}
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/post_interactions.js' %}"></script>
+{% endblock %}

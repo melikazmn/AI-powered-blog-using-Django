@@ -1,0 +1,513 @@
+/* ==================== Navbar Variables ==================== */
+:root {
+    --primary: #7070d1;
+    --primary-dark: #5555b8;
+    --bg-card: #ffffff;
+    --text-primary: #1a1a2e;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
+    --border: #e5e7eb;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+}
+
+/* ==================== Navbar (Compact & Modern) ==================== */
+/* ==================== Navbar (Compact & Modern) ==================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 96%;
+    max-width: 1400px;
+    margin: 12px auto;
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    padding: 14px 28px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    color: #7070d1;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    transition: color 0.2s;
+}
+
+.navbar-brand:hover {
+    color: var(--primary);
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-left: 24px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.btn-logout {
+    background: transparent;
+    border: 1.5px solid var(--primary);
+    color: var(--primary);
+    padding: 6px 16px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    margin-left: 24px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.btn-logout:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(112, 112, 209, 0.2);
+}
+
+.nav-link.active {
+    color: var(--primary);
+    font-weight: 600;
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+/* ==================== Navbar Responsive ==================== */
+@media (max-width: 768px) {
+    .navbar {
+        width: 94%;
+        padding: 12px 20px;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+
+    .nav-link {
+        margin-left: 16px;
+        font-size: 0.9rem;
+    }
+
+    .btn-logout {
+        padding: 5px 12px;
+        font-size: 0.85rem;
+        margin-left: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 16px;
+    }
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .nav-link {
+        margin-left: 12px;
+        font-size: 0.85rem;
+    }
+
+    .btn-logout {
+        padding: 4px 10px;
+        margin-left: 12px;
+    }
+}
+
+/* ==================== Blog Container ==================== */
+.blog-container {
+    width: 94%;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: calc(100vh - 140px);
+    padding: 2rem 0;
+}
+
+/* ==================== Page Header ==================== */
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+/* ==================== Tags Filter ==================== */
+.tags-filter-wrapper {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.tags-filter {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 0.5rem;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
+}
+
+.tags-filter::-webkit-scrollbar {
+    height: 6px;
+}
+
+.tags-filter::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.tags-filter::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+.tags-filter::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+.tag-btn {
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.tag-btn:hover {
+    background: rgba(112, 112, 209, 0.05);
+    border-color: var(--primary);
+}
+
+.tag-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/*///////////////////////////////// Posts Grid */
+/* Posts Grid - Vertical Layout */
+.posts-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 24px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Instagram-style Post Card */
+.post-card {
+    background: white;
+    border: 1px solid #dbdbdb;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Post Header (Author Info + Time) */
+.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid #efefef;
+}
+
+.post-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e1e1e1;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-username {
+    font-weight: 600;
+    font-size: 14px;
+    color: #262626;
+    text-decoration: none;
+}
+
+.author-username:hover {
+    text-decoration: underline;
+}
+
+.post-time {
+    font-size: 12px;
+    color: #8e8e8e;
+}
+
+/* Post Content Area */
+.post-content {
+    padding: 16px;
+}
+
+.post-title {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.post-title a {
+    color: #262626;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.post-title a:hover {
+    color: #0095f6;
+}
+
+/* AI Excerpt Box */
+.ai-excerpt-box {
+    background: #f3e8ff;
+    border: 2px solid #d8b4fe;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.ai-excerpt-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #7c3aed;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.ai-excerpt-text {
+    font-size: 13px;
+    color: #5b21b6;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Post Excerpt (2 lines) */
+.post-excerpt {
+    font-size: 14px;
+    color: #262626;
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Read More Link */
+.read-more {
+    display: inline-block;
+    color: #0095f6;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.read-more:hover {
+    color: #00376b;
+}
+
+/* Post Tags */
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #efefef;
+}
+
+.post-tags a.tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #f3f4f6;
+    color: #667eea;
+    border-radius: 16px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.post-tags a.tag:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.post-tags a.tag.active {
+    background: #667eea;
+    color: white;
+}
+
+/* Post Footer (Like & Comment) */
+.post-footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    border-top: 1px solid #efefef;
+}
+
+.post-action {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #262626;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.post-action:hover {
+    color: #0095f6;
+}
+
+.post-action svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+/* Like Button Styles */
+.like-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: transform 0.2s;
+}
+
+.like-btn:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
+.like-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.like-icon {
+    width: 24px;
+    height: 24px;
+    color: #666;
+    transition: color 0.3s;
+}
+
+.like-icon.liked {
+    color: #e74c3c;
+    fill: #e74c3c;
+}
+
+@keyframes likeAnimation {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+.comment-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .posts-grid {
+        max-width: 100%;
+    }
+
+    .post-card {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .post-header {
+        padding: 12px;
+    }
+
+    .post-content {
+        padding: 12px;
+    }
+
+    .post-footer {
+        padding: 10px 12px;
+    }
+}
+
+
